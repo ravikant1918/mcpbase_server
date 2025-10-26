@@ -171,33 +171,29 @@ mcpbase/
 
 ## ⚙️ Configuration
 
-MCPBase uses environment variables for configuration:
+MCPBase uses environment variables for configuration. Copy `.env.example` to `.env` and modify values as needed:
 
 ```bash
-# Enable debug logging
-export MCPBASE_DEBUG=true
-
-# Enable auto-reload in development
-export MCPBASE_RELOAD=true
-
-# Disable FastAPI endpoints
-export MCPBASE_ENABLE_FASTAPI=false
+cp .env.example .env
 ```
 
-### Server Configuration
+### Environment Variables
 
-The server configuration is defined in `mcpbase/config/__init__.py`:
+```bash
+# Server settings
+MCPBASE_SERVER_NAME="MCPBase Server"
+MCPBASE_SERVER_VERSION="1.0.0"
 
-```python
-@dataclass
-class ServerConfig:
-    name: str = "MCPBase Server"
-    version: str = "1.0.0"
-    description: str = "A minimal yet structured MCP base server"
-    default_host: str = "0.0.0.0"
-    default_http_port: int = 8000
-    protocol_version: str = "2024-11-05"
-    # ... more settings
+# Network settings
+MCPBASE_DEFAULT_HOST="0.0.0.0"
+MCPBASE_DEFAULT_HTTP_PORT=8000
+
+# Development settings
+MCPBASE_DEBUG=false
+MCPBASE_RELOAD=false
+
+# Logging
+MCPBASE_LOG_LEVEL="INFO"
 ```
 
 ## 🔧 Development
